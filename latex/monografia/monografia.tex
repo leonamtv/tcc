@@ -1,0 +1,205 @@
+ \documentclass[
+	11pt,
+	openright,
+	oneside,
+	a4paper,
+	english,
+	french,
+	spanish,
+	brazil,	
+	]{abntex2}
+
+\usepackage{abntex2-cefetmg-timoteo}
+
+\usepackage{cmap}
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}	
+\usepackage{lastpage}
+\usepackage{indentfirst}
+\usepackage{color}
+\usepackage{graphicx}
+\PassOptionsToPackage{normalem}{ulem} 
+\usepackage{ulem}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{upgreek}
+\usepackage{float}
+\usepackage[most]{tcolorbox}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[alf,abnt-thesis-year=both,]{abntex2cite}
+\usepackage{longtable}
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+\renewcommand{\backref}{}
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 
+		Nenhuma citação no texto.
+	\or
+		Citado na página #2.
+	\else
+		Citado nas páginas #2.
+	\fi}
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\redb}[1]{{\color{red}\textbf{{#1}}}}
+\newcommand{\quot}[1]{\begin{flushright} \textit{#1}\end{flushright}}
+
+
+\titulo{Estudo de caso: utilização de redes adversárias geradoras para super-resolução de imagens científicas}
+\autor{Leonam Teixeira de Vasconcelos}
+\local{Timóteo}
+\data{2025}
+\orientador{Douglas Nunes de Oliveira}
+\instituicao{
+  Centro Federal de Educação Tecnológica de Minas Gerais
+  \par
+  Campus Timóteo
+  \par
+  Graduação em Engenharia de Computação
+}
+\tipotrabalho{Trabalho de conclusão de curso (Graduação)}
+\preambulo{Monografia apresentada à Coordenação de Engenharia de Computação do Campus Timóteo do Centro Federal de Educação Tecnológica de Minas Gerais para obtenção do grau de Bacharel em Engenharia de Computação.}
+
+\makeatletter
+\hypersetup{
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{trabalho acadêmico}, 
+		colorlinks=true,
+    	linkcolor=black,
+    	citecolor=black,
+    	filecolor=black,
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+
+
+\setlength{\parindent}{1.3cm}
+
+\setlength{\parskip}{0.2cm} 
+
+\makeindex
+
+\begin{document}
+
+\frenchspacing 
+
+ \pretextual
+
+\imprimircapa
+
+\imprimirfolhaderosto*
+
+\begin{dedicatoria}
+    \vspace*{\fill}
+	\begin{flushright}
+		Dedico aos meus pais, Léia e Manoel,\\ e ao meu irmão, Luan.	
+	\end{flushright}
+\end{dedicatoria}
+
+\begin{agradecimentos}
+
+\quot{``O homem não é nada além daquilo\\que a educação faz dele.``\\Immanuel Kant}
+
+A conclusão deste trabalho é um evento que, quando o comecei, aparentava estar muito distante no horizonte. Conciliar seu desenvolvimento com meu trabalho, e minha carreira em seus altos e baixos, foi uma tarefa árdua -- quase tão difícil quanto o desenvolvimento do trabalho em si. Mas aqui estou, redigindo a última seção do documento, algo que antes parecia tão longínquo.
+
+Tal conclusão, deste trabalho e do curso, jamais seriam possíveis sem o fiel e consistente apoio de minha família, portanto devo sem mais delongas deixar meus mais sinceros agradecimentos à minha mãe Léia, meu pai Manoel e ao meu melhor amigo: meu irmão, Luan, que daqui a alguns anos, estará escrevendo um trabalho para este mesmo curso, nesta mesma instituição, neste mesmo molde. Não posso deixar de também agradecer, minha tia Néia, que sempre esteve ao meu lado e ao lado dos meus pais.
+
+Seria injusto eu não dedicar, mesmo que brevemente os agradecimentos a todos os meus amigos, junto com os quais trilhei esse caminho e também sou grato a todo o apoio que me foi concedido pelos meus queridos amigos de trabalho, com quem passo a maior parte do meu tempo, mesmo que de forma virtual. Meus profundos agradecimentos, a todos meus amigos que acompanharam direta, ou indiretamente o esforço e dedicação por trás da conclusão deste curso.
+
+E por último, nada mais justo que deixar meus agradecimentos aos professores e professoras que fizeram parte de minha educação e treinamento como engenheiro de computação. Alguns de seus ensinamentos, ainda uso diariamente no meu dia a dia.
+
+\end{agradecimentos}
+
+\setlength{\absparsep}{18pt} 
+\begin{resumo}
+
+\noindent 
+
+O presente trabalho procura validar a viabilidade de treinamentos específicos sob algoritmos de aprendizado de máquina para aumentar a resolução de imagens. A área de inteligência artificial explorada são as redes adversárias geradoras (RAGs), uma tecnologia que durante o início da escrita deste trabalho, era relativamente nova no mercado. Para concentrar os esforços em um sub conjunto palpável de imagens, a super resolução é focada em bases de imagens médicas e astronômicas, ambas sendo obtidas de fontes públicas na internet. Apesar de facilmente encontradas, as imagens requerem tratamento para se adaptarem à estrutura dos modelos. Este tratamento também faz parte dos esforços deste trabalho. Um desafio inevitável e indispensável para alcançar os objetivos, é a integração de diversos softwares de terceiros, necessários para que o treinamento das redes adversárias geradoras aconteça. O trabalho explora diversas fases contendo tarefas mecânicas, tornando automação, uma alternativa pertinente. Os resultados do trabalho mostram que os benefícios de um treinamento específico não são perceptíveis em relação a um treinamento genérico, quando a infraestrutura utilizada para o treinamento é limitada. 
+
+\noindent 
+\textbf{Palavras-chave}: aprendizado de máquina, super resolução de imagens, redes adversárias geradoras.
+
+\end{resumo}
+
+\begin{resumo}[Abstract]
+\begin{otherlanguage*}{english}
+
+\noindent 
+
+This work, seeks to validate the viability of specific training for machine learning algorithms, in order to increase images resolutions. The artificial intelligence branch explored in this work are the generative adversarial networks (GANs), a technology that, by the time of this writing, is relatively new to the industry. To concentrate the effort in a tangible image subset, the super resolution is focused in datasets containing medical and astronomical images, both being publicly available on the internet. Although the images can be easily found, they require extra treatment to adapt to the model's structures. This treatment is also accounted for in the efforts of this work. An inevitable and crucial challenge to reach the goals, is to integrate the myriad of third part softwares required for the machine learning training. This work explores several phases containing mechanical tasks, making automation a pertinent alternative. The results show that the benefits of a specific training are not perceptible in comparison with a generic training, when the infrastructure used for the training is limited.
+
+\noindent  
+\textbf{Keywords}: machine learning, image super resolution, generative adversarial networks.
+\end{otherlanguage*}
+\end{resumo}
+
+
+\renewcommand*{\insertchapterspace}{} 
+
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+
+\include{src/inicio/lista_abreviacoes}
+
+\include{src/inicio/lista_simbolos}
+
+\include{src/inicio/sumario}
+
+\textual
+
+\chapter[Introdução]{Introdução}
+\quot{``As coisas nas quais você pensa\\determinam a qualidade da tua mente.''\\Marco Aurélio}
+\label{chapter:introducao}
+\include{introducao}
+
+\chapter{Revisão bibliográfica}
+\quot{``Ler, é pensar com uma cabeça alheia''.\\Arthur Schopenhauer}
+\label{chapter:metodologia}
+\include{metodologia}
+
+\chapter{Procedimentos metodológicos}
+\quot{``Sem música, a vida seria um erro``. \\Friedrich Nietzsche}
+\label{chapter:procedimentos_metodologicos}
+\include{procedimentos}
+
+\chapter{Desenvolvimento}
+\quot{``O início é a parte mais\\ importante do trabalho.''\\Platão}
+\label{chapter:desenvolvimento}
+\include{desenvolvimento}
+
+\chapter{Resultados}
+\quot{``A vida é longa\\se você sabe usá-la``.\\Lúcio Sêneca}
+\label{chapter:resultados}
+\include{resultados}
+
+\chapter{Conclusão}
+\quot{``Nem homem nem nação podem\\existir sem uma ideia sublime``.\\Fiódor Dostoiévski}
+\label{chapter:conclusao}
+\include{conclusao}
+
+\chapter{Propostas de trabalhos futuros}
+\quot{``Feliz é aquele que transfere o\\que sabe e aprende o que ensina.``\\Cora Coralina}
+\label{chapter:trabalhos_futuros}
+\include{trabalhos_futuros}
+
+\bookmarksetup{startatroot}
+
+\postextual
+
+\bibliography{references}
+
+\printindex
+
+\end{document}

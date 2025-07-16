@@ -1,0 +1,76 @@
+\section{Métodos de verificação de qualidade de imagens}
+\label{sec:qualidade-imagem}
+\index{Similaridade de imagens}
+
+Apesar da qualidade de uma imagem poder ser tratada como algo subjetivo do ponto de vista da fotografia como arte, existem formas de a avaliarmos quantitativamente. Neste trabalho há um interesse particular em avaliar a proximidade, ou similaridade entre imagens. Considere as seguintes assunções:
+
+\begin{enumerate}
+    \item Seja \textbf{A} uma imagem de alta qualidade
+    \item Seja \textbf{B} a versão comprimida e reduzida da imagem A
+    \item Seja \textbf{C} o resultado da super resolução da imagem \textbf{B} por uma \textbf{ESRGAN}
+\end{enumerate}
+
+Tenha em mente, que as assunções acima se aplicam somente ao escopo deste trabalho. Os métodos estatísticos e quantitativos de calcular a similaridade entre imagens devem, em sua maioria calculá-la independentemente das imagens em questão, sejam versões comprimidas uma da outra ou sejam imagens completamente distintas e não relacionadas.
+
+Para de verificar a eficiência e confiabilidade da super resolução obtida na imagem \textbf{C}, precisa-se de avaliar a similidade, ou disparidade entre a imagem \textbf{A}, original e descomprimida, e a imagem \textbf{C} super resolvida, após a compressão.
+
+Existem vários métodos estatísticos que podem ser utilizados para se calcular a semelhança matemática entre duas imagens. Dessa forma, é possível medir numericamente o quão próximas são as imagens \textbf{A} e \textbf{C}.
+
+Abaixo, alguns destes métodos estão descritos. Leve em consideração, que os nomes e siglas serão deixados como são mais conhecidos, e em consequência mais facilmente encontrados. Em sua maioria, os termos originais são em inglês, porém uma tradução está apresentada na descrição.
+
+Existem diversas bibliotecas disponíveis para calcular estes índices de similaridade, como a biblioteca de \textit{Python}, \textit{sewar} \cite{khalel_sewar_2023}. Uma biblioteca de código aberto que implementa diversos índices de maneira simplória e minimalista.
+
+
+\subsection{\textit{Mean Squared Error (MSE)}}
+\label{alg:mse}
+\index{MSE}
+\index{Mean Squared Error}
+
+O \textit{Mean Squared Error} (Erro quadrático médio, do inglês), pode ser definido da seguinte forma entre duas imagens (É bastante comum encontrar o termo \textit{sinal} no lugar de \textit{imagem}) \textbf{x} e \textbf{y}:
+
+\begin{equation}
+    MSE(x,y) = \frac{1}{n} \sum_{i=1}^{n} \left(y_{i}-y_{i}^{~}\right)^{2}
+\end{equation}
+
+No MSE, quanto menor o valor, menor o erro entre as duas imagens e em consequência, maior a similaridade.
+
+\subsection{\textit{Root Mean Squared Error (RMSE)}}
+\label{alg:rmse}
+\index{RMSE}
+\index{Root Mean Squared Error}
+
+O \textit{Root Mean Squared Error} (Raiz do erro quadrático médio, do inglês) é uma variação do MSE(\ref{alg:mse}) e pode ser definido da seguinte forma entre duas imagens (Assim como o MSE(\ref{alg:mse}), é bastante comum encontrar o termo \textit{sinal} no lugar de imagem) \textbf{x} e \textbf{y}:
+
+\begin{equation}
+    RMSE(x,y) = \sqrt{\sum_{i=1}^{n} \frac{\left(y_{i}-y_{i}^{~}\right)^{2}}{n}}
+\end{equation}
+
+No RMSE, assim como no MSE(\ref{alg:mse}) quanto menor o valor, menor o erro entre as duas imagens e em consequência, maior a similaridade.
+
+\subsection{\textit{Peak Signal-to-Noise Ratio (PSNR)}}
+\label{alg:psnr}
+\index{PSNR}
+\index{Peak Signal-to-Noise Ratio}
+
+O \textit{Peak Signal-to-Noise Ratio} \cite{wang_image_2004} (Relação sinal-ruído de pico, do inglês) pode ser definido da seguinte forma entre os sinais ou imagens \textbf{x} e \textbf{y}:
+
+\begin{equation}
+    PSNR(x,y) = 10\cdot \log_{10}\left(\frac{MAX_{x}^{2}}{MSE(x,y)}\right)
+\end{equation}
+
+No PSNR, quanto maior o valor, maior a similaridade entre as imagens.
+
+\subsection{\textit{Erreur Relative Globale Adimensionnelle de Synthèse (ERGAS)}}
+\label{alg:ergas}
+\index{ERGAS}
+\index{Erreur Relative Globale Adimensionnelle de Synthèse}
+
+O \textit{Erreur Relative Globale Adimensionnelle de Synthèse} \cite{wald_quality_2000} (Erro adimensional de síntese global relativa, do francês) pode ser definido da seguinte forma entre os sinais ou imagens \textbf{x} e \textbf{y}:
+
+\begin{equation}
+\begin{split}
+    ERGAS(x,y)      &= 100\cdot \frac{h}{l} \sqrt{\frac{1}{N} \sum_{i=1}^{N} \frac{RMSE(x,y)^{2}}{M(x,y)^{2}}}
+\end{split}
+\end{equation}
+
+No ERGAS, quanto menor o valor -- mais próximo de zero -- maior a similaridade.

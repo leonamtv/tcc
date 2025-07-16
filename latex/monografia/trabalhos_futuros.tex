@@ -1,0 +1,86 @@
+\index{Trabalhos futuros}
+\label{sec:trabalhos-futuros}
+
+Durante todo o processo de pesquisa e execução deste trabalho, várias outras possíveis aplicações de super-resolução foram detectadas. Seja como uma inteira nova utilidade ou como uma variação deste trabalho. A ideia aqui é documentar algumas possíveis ideias extraídas do trabalho atual.
+
+\section{Uso de RAGs com imagens geográficas}
+\label{sec:trabalhos-futuros:imagens-geograficas}
+
+\subsection{Super resolução de imagens de satélites}
+\label{sec:trabalhos-futuros:imagens-geograficas:imagens-satelites}
+
+Existe na internet um acervo bem completo e extenso de imagens aéreas e de satélites, algumas destas bem antigas. Ferramentas como \textit{Google Earth} permitem viajar no passado, para visualizar como diversas regiões eram anos atrás. Estas imagens, apesar de impressionantes, têm baixa resolução. Geralmente, quanto mais antigas as imagens, menor a resolução. O trabalho proposto é de utilizar a super resolução com GAN para restaurar tais imagens e talvez até produzir um mapa mais refinado. 
+
+\subsection{RAGs e drones de baixo custo para mapeamento geográfico}
+\label{sec:trabalhos-futuros:imagens-geograficas:mapeamento-geografico-drone}
+
+Fazer um mapeamento geográfico de uma região com detalhes suficientes para extrair detalhes de estruturas como prédios, casas etc. utilizando de técnicas de fotogrametria pode ser um processo caro. Equipamentos que possuem os recursos necessários e boa resolução têm preços consideráveis. Com uma forma confiável de fazer super resolução de imagens, equipamentos inferiores, e em consequência mais baratos, podem ser utilizados para fazer o escaneamento aéreo, e no pós processamento, a ideia é super resolver as imagens produzidas para prosseguir então com o mapeamento. 
+
+\section{Uso de RAGs para compressão e descompressão de imagens e vídeos}
+\label{sec:trabalhos-futuros:compressao-descompressao}
+
+Como dito no final da seção \ref{justificativa}, o uso de RAGs para super resolução de imagens pode trazer uma forma de descompressão de imagens como subproduto. Todo mundo atualmente possui uma câmera poderosa em seus bolsos e armazenar grandes quantidades de fotos e vídeos, produzidos em grande escala diariamente, é um problema comum enfrentado pelo usuário médio. Caso seja possível comprimir estas imagens e vídeos -- que não passam de uma sequência de imagens -- sob demanda, descomprimi-los com fidelidade suficiente para que não seja um problema para o usuário, assume-se então que um método eficiente de descompressão de imagens foi desenvolvido. 
+
+\section{Uso de RAGs para microscopia}
+\label{sec:trabalhos-futuros:microscopia}
+
+\subsection{Super resolução de imagens microscópicas}
+\label{sec:trabalhos-futuros:microscopia:imagens-existentes}
+
+Seguindo a mesma linha deste trabalho, como trabalho futuro a sugestão seria de usar bases de dados existentes para aprimorar a qualidade das imagens de microscopia disponíveis na internet. Aumentar a quantidade de detalhes em uma imagem de microscópio pode ser de grande ajuda para o público alvo deste tipo de conteúdo. 
+
+\subsection{RAGs e microscópios caseiros de baixo custo}
+\label{sec:trabalhos-futuros:microscopia:baixo-custo}
+
+Existem diversas formas de se fabricar um microscópio com tecnologias acessíveis como \textit{WebCams} de entrada. Apesar da facilidade para se produzir tal equipamento, como é de se esperar, a qualidade das imagens geradas não possui grande qualidade. A proposta, seria de utilizar tal ferramenta em conjunto com uma RAG para super resolver as imagens -- talvez em tempo real, mostrando diretamente em um display a imagem já super resolvida. Este trabalho produziria uma forma barata e eficaz de se observar e analisar objetos microscópicos. 
+
+\section{Uso de RAGs em monitoramento}
+\label{sec:trabalhos-futuros:monitoramento}
+
+\subsection{RAGs e Câmeras de segurança}
+\label{sec:trabalhos-futuros:monitoramento:camera-seguranca}
+
+\subsubsection{RAGs para redução de armazenamento (compressão e descompressão)}
+\label{sec:trabalhos-futuros:monitoramento:camera-seguranca:compressao-descompressao}
+
+Um dos problemas existentes com sistemas de segurança é o armazenamento dos vídeos capturados. Até quando manter um vídeo armazenado? O máximo possível é a melhor alternativa. Contudo, o tempo máximo possível é obviamente limitado pelo armazenamento disponível. Os gravadores de vídeo digital (conhecidos como DVR) utilizados em sistemas de segurança costumam utilizar a gravação contínua até encher os discos rígidos. Uma vez completamente cheios, o armazenamento mais antigo vai sendo sobrescrito à medida que vídeo subsequente é gravado. A proposta seria comprimir estes vídeos, e posteriormente descomprimi-los com boa qualidade e fidelidade ao material original, para aumentar significativamente este período máximo de retenção de imagens. 
+
+\subsubsection{RAGs para captura de detalhes refinados}
+\label{sec:trabalhos-futuros:monitoramento:camera-seguranca:extracao-detalhes}
+
+Identificar objetos em imagens de câmeras de segurança não é uma tarefa simples. A resolução baixa muitas vezes não permite extrair informações importantes como identidade de pessoas ou identificação de veículos. Com uma forma eficiente de super resolver estas imagens, talvez seja possível mudar a forma de analisar vídeos e imagens de sistemas de segurança. 
+
+\subsection{Monitoramento de trânsito}
+\label{sec:trabalhos-futuros:monitoramento:transito}
+
+Assim como no caso acima (seção \ref{sec:trabalhos-futuros:monitoramento:camera-seguranca:extracao-detalhes}), o objetivo nesta proposta é aprimorar o detalhe de imagens produzidas por câmeras de baixa resolução. Obter identificação de veículos pode ser positivamente afetado por uma ferramenta de super resolução de imagens de câmeras de trânsito. 
+
+\section{Super resolução para entretenimento}
+\label{sec:trabalhos-futuros:entretenimento}
+
+\subsection{RAGs para jogos}
+\label{sec:trabalhos-futuros:entretenimento:jogos}
+
+O objetivo seria a utilização de RAGs para remasterizar jogos antigos originalmente produzidos para dispositivos de baixa resolução. 
+
+\subsection{RAGs para filmes e séries}
+\label{sec:trabalhos-futuros:entretenimento:filmes-series}
+
+O intuito desta proposta é a utilização de RAGs para, assim como o caso acima (\ref{sec:trabalhos-futuros:entretenimento:jogos}), aumentar a resolução e definição da imagem. Existem diversas ferramentas que já fazem este tipo de tarefa. Este trabalho seria um estudo de caso. Neste tópico, um adendo poderia ser construir um aplicativo ou ferramenta para facilitar a execução destas super resoluções. Desta forma, o público não técnico poderia tirar proveito dos resultados. 
+
+\section{Super resolução de áudio}
+\label{sec:trabalhos-futuros:audio}
+
+Áudio digital possui uma frequência de gravação e uma taxa de amostragem limitadas pela capacidade dos equipamentos e software utilizados na gravação e mixagem. A proposta deste trabalho seria aumentar esta frequência sem reduzir significativamente a fidelidade do áudio. Existem formas tradicionais de ampliar esta frequência (ou resolução) como interpolação, mas estes mecanismos não são inteligentes o suficiente para detectar padrões que outrora podem ser identificados por um modelo de aprendizado de máquina como RAGs. 
+
+Uma RAG, composta por redes capazes de extrair contexto espacial dos dados de entrada, talvez seja capaz de interpolar estatisticamente amostras de áudio entre amostras existentes, criando assim um áudio digital mais encorpado e próximo à sua contraparte analógica. 
+
+\section{Portabilidade do trabalho atual}
+\label{sec:trabalhos-futuros:portabilidade}
+
+O presente trabalho necessita de um desktop ou servidor rodando o modelo para executá-lo. Para utilizar a versão móvel, ainda assim é necessário um \textit{backend} processando os dados e os enviando para o dispositivo móvel. Algumas bibliotecas de inteligência artificial como o \textit{Tensorflow} possuem versões dedicadas para executar em dispositivos móveis. Alguns dispositivos possuem até mesmo hardware dedicado para este tipo de processamento, como a \textit{Neural Engine} utilizada pela \textit{Apple} e alguns de seus produtos. A proposta deste trabalho futuro seria portar o modelo atual ou um modelo similar para dispositivos móveis de forma a eliminar a necessidade de uma infraestrutura inteira para o funcionamento da ferramenta. Esta proposta pode ainda transformar o trabalho em um produto.
+
+\section{Estudo sobre a viabilidade de treinamentos pausados}
+\label{sec:trabalhos-futuros:treinamento-pausado}
+
+Como mencionado na seção \ref{chapter:conclusao}, existe a possibilidade de se realizar um treinamento pausado em ciclos. A proposta para este trabalho futuro seria experimentar sobre esta técnica, coletando dados para elaborar sobre a viabilidade de se treinar um modelo por esse método. Planejamento e agendamento das atividades será essencial para realizar um treinamento longo. Diferentemente do trabalho atual, uma atividade dessas requer pontualidade para executar os ciclos de treinamento: enquanto neste trabalho, todos treinamentos do modelo foram feitos em uma única execução, na proposta, o treinamento seria feito por um número de épocas por execução, até atingir-se um resultado satisfatório.
