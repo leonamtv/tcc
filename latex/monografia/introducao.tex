@@ -1,35 +1,35 @@
-\section{Justificativa}
-\label{justificativa}
-
 Na era da informação, uma quantidade avassaladora de dados sem precedentes é trafegada de dispositivo a dispositivo a cada segundo. Consumimos e produzimos um volume muito grande de informação. Em média o ser humano produziu cerca de 1,7MB de dados por minuto em 2020 \cite{vish_how_2020} e esse número só tende a aumentar. Uma parte significativa do conteúdo produzido e consumido é em forma de imagens (fotos e vídeos, se pensarmos que os vídeos são apenas imagens sendo reproduzidas em determinada frequência). Se avaliarmos que a cada iteração tecnológica, celulares e câmeras ficam melhores, capturando imagens maiores, com mais qualidade, resolução, alcance dinâmico etc. a variação da quantidade de dados produzidos está em ascensão.
 
 Outro tipo de imagem pouco utilizada pelo público geral e de grande importância para o público científico são imagens de registros históricos, astronômicas e médicos. A razão pela qual estes três gêneros de imagens foram listados em conjunto é simples. Existe um conjunto grande dessas imagens em acervos de fotografia que possuem baixa qualidade, seja pela tecnologia obsoleta utilizada na época ou pela complexidade e custos para capturar uma imagem de mais qualidade. Algumas imagens médicas em particular como Ressonância Magnética, não podem, em alguns casos ser obtidas com uma qualidade maior devido à consequências à saúde do paciente exposto ao equipamento \cite{gupta_super-resolution_2020}.
+
+\section{Justificativa}
+\label{justificativa}
 
 Para ambos os casos citados (número de imagens e vídeos crescendo com o avanço tecnológico e imagens científicas de baixa qualidade) poderíamos utilizar alguma forma de descompressão para aliviar as consequências do aumento absurdo da quantidade de imagens criadas e consumidas e da baixa qualidade das imagens históricas, médicas e astronômicas \cite{sun_super_2019,noauthor_review_2020}. No primeiro caso, poderíamos reduzir a resolução das imagens propositalmente para que essas ocupem menos espaço de armazenamento nos dispositivos e menos banda durante as transferências, aumentando inclusive, a velocidade destas. Para visualizar a imagem em uma qualidade mais alta (tanto as imagens propositalmente reduzidas quanto as imagens já com qualidade baixa) se faz necessário então uma forma viável de aumentar a resolução dessas imagens. 
 
 O processo de aumentar a resolução de uma imagem é cientificamente conhecido como Super-resolução ou SISR (Single Image Super Resolution, Super-resolução de imagem única, do inglês) e é conhecido como um problema altamente dependente dos dados de entrada e que possui múltiplas soluções visto que para uma imagem de baixa resolução existem várias imagens que podem tê-la gerado  \cite{zhu_gan-based_2020}. Métodos algorítmicos baseados em conceitos matemáticos e sistemas baseados em aprendizado de máquina já existem para esse tipo de tarefa \cite{takemura_algoritmos_nodate, khaledyan_low-cost_2020}. No entanto, recuperar detalhes finos, como texturas, ao aumentar a resolução de imagens em um fator alto. ainda é um problema remanescente \cite{ledig_photo-realistic_2017}.
 
-Uma técnica relativamente nova introduzida em 2016 por Ian Goodfellow \cite{goodfellow_generative_2014, goodfellow_nips_2017}, faz o uso de várias redes neurais, competindo entre si para que em vez de manipularmos uma entrada e obter um resultado, possamos gerar um resultado novo a partir de aprendizado prévio. Essas redes são chamadas de Redes Geradoras Adversárias e foram desenvolvidas para que possamos gerar bases de dados novas e inéditas a partir de dados existentes \cite{goodfellow_generative_2014, moreira_geracao_2019} e já foram utilizadas para super-resolução de imagens, como mostra \cite{moreira_geracao_2019}. O trabalho, no entanto, deixa em aberto algumas propostas futuras para que possamos investigar novas formas de avaliar o desempenho deste método, assim como sugestões de novas formas com as quais podemos o mensurar e julgar. Seria possível combinar estes trabalhos com o propósito de desenvolver um modelo viável para esse tipo de problema? 
+Uma técnica relativamente nova introduzida em 2016 por \citeonline{goodfellow_generative_2014, goodfellow_nips_2017}, faz o uso de várias redes neurais, competindo entre si para que em vez de manipularmos uma entrada e obter um resultado, possamos gerar um resultado novo a partir de aprendizado prévio. Essas redes são chamadas de Redes Geradoras Adversárias e foram desenvolvidas para que possamos gerar bases de dados novas e inéditas a partir de dados existentes \cite{goodfellow_generative_2014, moreira_geracao_2019} e já foram utilizadas para super-resolução de imagens, como mostra \citeonline{moreira_geracao_2019}. O trabalho, no entanto, deixa em aberto algumas propostas futuras para que possamos investigar novas formas de avaliar o desempenho deste método, assim como sugestões de novas formas com as quais podemos o mensurar e julgar. Seria possível combinar estes trabalhos com o propósito de desenvolver um modelo viável para esse tipo de problema? 
 
-Este é o objetivo deste trabalho. Utilizar redes geradoras adversárias, reproduzindo e experimentando os trabalhos de \cite{ledig_photo-realistic_2017} e \cite{wang_esrgan_2018}, tendo como base de conhecimento a grande contribuição de \cite{goodfellow_generative_2014} para a ciência da computação e o trabalho de \cite{moreira_geracao_2019} a fim de treinar um modelo onde possamos recuperar qualidade de uma imagem de baixa qualidade. Para seguir a linha de pesquisa dos autores mencionados, o trabalho foca em super-resolução de imagens científicas, mais especificamente, imagens astronômicas e médicas de aparelhos utilizados para exames de imagem, como ressonância magnética. 
+Este é o objetivo deste trabalho. Utilizar redes geradoras adversárias, reproduzindo e experimentando os trabalhos de \citeonline{ledig_photo-realistic_2017} e \citeonline{wang_esrgan_2018}, tendo como base de conhecimento a grande contribuição de \citeonline{goodfellow_generative_2014} para a ciência da computação e o trabalho de \citeonline{moreira_geracao_2019} a fim de treinar um modelo onde possamos recuperar qualidade de uma imagem de baixa qualidade. Para seguir a linha de pesquisa dos autores mencionados, o trabalho foca em super-resolução de imagens científicas, mais especificamente, imagens astronômicas e médicas de aparelhos utilizados para exames de imagem, como ressonância magnética. 
 
-Dessa forma, é possível verificar o desempenho dessa metodologia no âmbito científico, recuperando ou aprimorando fotos precárias, ou de qualidade indesejável (como mencionado em \cite{sun_super_2019, noauthor_review_2020, gupta_super-resolution_2020}). 
+Dessa forma, é possível verificar o desempenho dessa metodologia no âmbito científico, recuperando ou aprimorando fotos precárias, ou de qualidade indesejável (como mencionado em \citeonline{sun_super_2019, noauthor_review_2020, gupta_super-resolution_2020}). 
 
 \section{Objetivos}
 
-Experimentar os trabalhos de \cite{ledig_photo-realistic_2017, moreira_geracao_2019, wang_esrgan_2018} para a elaboração de uma rede geradora adversária treinada especificamente para a super-resolução de imagens científicas a fim de validarmos os custos e benefícios deste treinamento específico em relação à modelos genericamente treinados.
+Experimentar os trabalhos de \citeonline{ledig_photo-realistic_2017, moreira_geracao_2019, wang_esrgan_2018} para a elaboração de uma rede geradora adversária treinada especificamente para a super-resolução de imagens científicas a fim de validarmos os custos e benefícios deste treinamento específico em relação à modelos genericamente treinados.
 
 Mais especificamente, os objetivos do trabalho podem ser sumarizados nos tópicos abaixo:
 
 \begin{enumerate}
 
-    \item Definir um sub-conjunto de imagens, especificamente de uma ou duas áreas para especializarmos o trabalho
+    \item Definir um sub-conjunto de imagens, especificamente de uma ou duas áreas para especializarmos o modelo
 
     \item Definir um modelo de redes geradoras adversárias para o contexto apresentado
 	
     \item Integrar todo software e dependência necessários para treinar e utilizar o modelo escolhido no objetivo anterior
     
-	\item Utilizar as bases de imagens para treinar o modelo escolhido de forma específica
+	\item Definir as bases de imagens para treinar o modelo escolhido de forma específica
 	
 	\item Utilizar-se de técnicas de cálculo de similaridade de imagens para avaliar o desempenho do treinamento realizado
 

@@ -4,7 +4,7 @@ O presente trabalho pode ser classificado quanto a diversos aspectos. Em termos 
 
 Nesta parte do trabalho é definido o fluxo no qual a proposta foi implementada, desde o princípio majoritariamente teórico, até a parte mais prática, onde é testado de fato, modelos de redes geradoras adversárias. O diagrama da figura \ref{fig:fig9} ilustra as fases e as subseções em sequência, detalham um pouco mais a fundo a intenção e objetivos de cada uma das fases.
 
-\begin{figure}
+\begin{figure}[H]
     \centering
     \caption{Diagrama de fluxo dos procedimentos metodológicos planejados para a realização e avaliação do trabalho e de seus resultados.}
     \includegraphics[width=14cm]{fig/flow_diagram_development.png}
@@ -42,7 +42,7 @@ Repare que no diagrama (\ref{fig:fig9}) esta fase consiste em duas sub-etapas. E
 
 \subsection{Instalação, preparação e configuração do ambiente (etapa n\textsuperscript{o} 3)}
 
-Nesta etapa, todo software necessário para o treinamento e execução dos modelos são instalados e configurados, atentando-se aos diferentes níveis de compatibilidades entre as variadas partes envolvidas. Esta fase é prune a muitos problemas de equivalência entre versões de softwares e justamente por isso, erros são comuns nas execuções. Estas dificuldades são as razões por trás do laço superior nesta fase, retornando para ela mesma: caso a instalação dê errado, uma nova tentativa, com configurações diferentes é realizada.
+Nesta etapa, todo software necessário para o treinamento e execução dos modelos são instalados e configurados, atentando-se aos diferentes níveis de compatibilidades entre as variadas partes envolvidas. Esta fase é suscetível a muitos problemas de equivalência entre versões de softwares e justamente por isso, erros são comuns nas execuções. Estas dificuldades são as razões por trás do laço superior nesta fase, retornando para ela mesma: caso a instalação dê errado, uma nova tentativa, com configurações diferentes é realizada.
 
 \subsection{Execução do treinamento das RAGs (etapa n\textsuperscript{o} 4)}
 
@@ -52,7 +52,7 @@ Modelos existentes foram utilizados. Tais modelos estão disponíveis em reposit
 
 \subsection{Análise da execução do treinamento (etapa n\textsuperscript{o} 5)}
 
-Aqui, são julgados, os treinamentos obtidos pelas experimentações, e de acordo com estes, a decisão de prosseguir ou regredir alguns passos para refazer experimentos, é tomada. Com um treinamento satisfatório, pula-se para a próxima fase. Caso contrário, a fase anterior é executada novamente, calibrando os parâmetros de treinamento. Todo o processo de treinamento e seus dados colhidos são documentados, independentes se satisfazem ou não os objetivos. Esta fase pode também retornar à fase de número 3, caso os resultados não estejam de acordo com o esperado.
+Aqui, são julgados, os treinamentos obtidos pelas experimentações, e de acordo com estes, a decisão de prosseguir ou regredir alguns passos para refazer experimentos é tomada. Com um treinamento satisfatório, pula-se para a próxima fase. Caso contrário, a fase anterior é executada novamente, calibrando os parâmetros de treinamento. Todo o processo de treinamento e seus dados colhidos são documentados, independentes se satisfazem ou não os objetivos. Esta fase pode também retornar à fase de número 3, caso os resultados não estejam de acordo com o esperado.
 
 \section{Execução dos modelos treinados (etapa n\textsuperscript{o} 6)}
 \label{sec:procedimentos:execucao-modelo-treinado}

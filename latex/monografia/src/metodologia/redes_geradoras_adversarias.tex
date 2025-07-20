@@ -4,7 +4,7 @@
 \index{RAG}
 \index{Redes Adversárias Geradoras}
 
-Uma forma relativamente nova na indústria para gerar dados, é a utilização das \textit{redes geradoras adversárias}\index{GAN}. O conceito foi introduzido em 2014 por Ian Goodfellow \cite{goodfellow_generative_2014}. As redes geradoras utilizam o princípio da competição para produzir os resultados e para disso, utiliza (pelo menos na arquitetura inicial proposta) duas redes neurais, competindo entre si para gerar quaisquer forma de dados que sejam aplicáveis à esse tipo de modelo.
+Uma forma relativamente nova na indústria para gerar dados, é a utilização das \textit{redes geradoras adversárias}\index{GAN}. O conceito foi introduzido em 2014 por \citeonline{goodfellow_generative_2014}. As redes geradoras utilizam o princípio da competição para produzir os resultados e para disso, utiliza (pelo menos na arquitetura inicial proposta) duas redes neurais, competindo entre si para gerar quaisquer forma de dados que sejam aplicáveis à esse tipo de modelo.
 
 O modelo consiste de duas redes neurais denominadas \textit{geradora} ($G(x)$) e \textit{discriminadora} ($D(y)$). A geradora, como o próprio nome diz gera o dado em questão: imagens, texto, música entre outros \cite{c_han_gan-based_2018, xu_diversity-promoting_2018, oza_progressive_2019}. 
 
@@ -25,7 +25,7 @@ De acordo com a imagem \ref{fig:fig7}, a saída da rede geradora alimenta a rede
 \index{SRGAN} 
 \index{Super Resolution Generative Adversarial Networks}
 
-SRGAN é a arquitetura de GAN proposta para fazer super-resolução de imagens. Ela utiliza duas redes (discriminadora e geradora), montadas individualmente em arquiteturas específicas para obter o máximo das redes na super-resolução. O diagrama abaixo (\ref{fig:fig8}) mostra como a rede é organizada. O nome das camadas são dados por k<x>n<y>s<z>, onde \textit{x} é o tamanho do kernel, \textit{y} é o número de \textit{feature maps} (i.e. o tamanho da saída da camada convolucional) e \textit{s} é a sigla para \textit{stride}, que representa o passo que a janela de pooling vai se deslocar em cada iteração (e.g. com \textit{s=1}, a janela de \textit{pooling} vai se deslocar de pixel a pixel) 
+SRGAN é a arquitetura de GAN proposta para fazer super-resolução de imagens. Ela utiliza duas redes (discriminadora e geradora), montadas individualmente em arquiteturas específicas para obter o máximo das redes na super-resolução. O diagrama \ref{fig:fig8} abaixo mostra como a rede é organizada. O nome das camadas são dados por k<x>n<y>s<z>, onde \textit{x} é o tamanho do kernel, \textit{y} é o número de \textit{feature maps} (i.e. o tamanho da saída da camada convolucional) e \textit{s} é a sigla para \textit{stride}, que representa o passo que a janela de pooling vai se deslocar em cada iteração (e.g. com \textit{s=1}, a janela de \textit{pooling} vai se deslocar de pixel a pixel) 
 
 \begin{figure}[H]
     \centering
@@ -35,14 +35,14 @@ SRGAN é a arquitetura de GAN proposta para fazer super-resolução de imagens. 
     \label{fig:fig8}
 \end{figure}
 
-Neste modelo, a discriminadora é treinada para avaliar se a imagem é uma imagem original de alta resolução ou uma imagem super-resolvida artificialmente \cite{ledig_photo-realistic_2017} enquanto a geradora (essa parte difere um pouco da arquitetura original proposta por \cite{goodfellow_generative_2014}) é treinada para processar uma imagem de baixa resolução (anteriormente, no lugar da imagem em baixa resolução, a entrada era ruído), processá-la, e obter uma imagem de maior resolução na saída.
+Neste modelo, a discriminadora é treinada para avaliar se a imagem é uma imagem original de alta resolução ou uma imagem super-resolvida artificialmente \cite{ledig_photo-realistic_2017} enquanto a geradora (essa parte difere um pouco da arquitetura original proposta por \citeonline{goodfellow_generative_2014}) é treinada para processar uma imagem de baixa resolução (anteriormente, no lugar da imagem em baixa resolução, a entrada era ruído), processá-la, e obter uma imagem de maior resolução na saída.
 
 \subsection{ESRGAN}
 \index{GAN} 
 \index{ESRGAN} 
 \index{Enhanced Super Resolution Generative Adversarial Networks}
 
-A SRGAN, obteve grande desempenho em relação aos outros modelos testados porém, \cite{wang_esrgan_2018} detectou alguns pontos na arquitetura que podem ser otimizados. Perceba, que na figura \ref{fig:fig8}, a rede geradora é formada por um conjunto de blocos básicos (\textit{B residual blocks}). Esses blocos, internamente são formados por uma série de camadas e entre elas temos uma camada representada pela cor laranja, identificada como BN. Vide figura \ref{fig:fig12}.
+A SRGAN, obteve grande desempenho em relação aos outros modelos testados porém, \citeonline{wang_esrgan_2018} detectou alguns pontos na arquitetura que podem ser otimizados. Perceba, que na figura \ref{fig:fig8}, a rede geradora é formada por um conjunto de blocos básicos (\textit{B residual blocks}). Esses blocos, internamente são formados por uma série de camadas e entre elas temos uma camada representada pela cor laranja, identificada como BN. Vide figura \ref{fig:fig12}.
 
 \begin{figure}[H]
     \centering
@@ -52,7 +52,7 @@ A SRGAN, obteve grande desempenho em relação aos outros modelos testados poré
     \label{fig:fig12}
 \end{figure}
 
-A camada \textit{BN} da imagem \ref{fig:fig12} performa uma normalização na saída da camada anterior chamada \textit{Batch Normalization}. Esta normalização reduz alguns problemas existentes no treinamento de redes neurais, performando uma normalização não a nível de amostra, mas a nível de \textit{batches}, que são um conjunto de dados treinados em sequência numa rede. De acordo com \cite{wang_esrgan_2018}, esta normalização não é eficiente quando o modelo está lidando com otimização de dados utilizando relação sinal-ruído. Para tal, \cite{wang_esrgan_2018} propõe um novo modelo de bloco básico e um novo modelo de rede discriminadora. A figura \ref{fig:fig13} ilustra o novo bloco básico proposto, que elimina completamente as camadas de normalização de \textit{batch}.
+A camada \textit{BN} da imagem \ref{fig:fig12} performa uma normalização na saída da camada anterior chamada \textit{Batch Normalization}. Esta normalização reduz alguns problemas existentes no treinamento de redes neurais, performando uma normalização não a nível de amostra, mas a nível de \textit{batches}, que são um conjunto de dados treinados em sequência numa rede. De acordo com \citeonline{wang_esrgan_2018}, esta normalização não é eficiente quando o modelo está lidando com otimização de dados utilizando relação sinal-ruído. Para tal, \citeonline{wang_esrgan_2018} propõe um novo modelo de bloco básico e um novo modelo de rede discriminadora. A figura \ref{fig:fig13} ilustra o novo bloco básico proposto, que elimina completamente as camadas de normalização de \textit{batch}.
  
 \begin{figure}[H]
     \centering

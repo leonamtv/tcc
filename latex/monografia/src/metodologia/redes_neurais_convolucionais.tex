@@ -4,7 +4,7 @@
 \index{CNN}
 \index{RNC}
 
-Redes neurais convolucionais foram desenvolvidas para resolver o problema de aprender o relacionamento entre dados adjacentes e são amplamente utilizadas para o processamento de imagens justamente por terem a capacidade de extrair características uteis para reconhecimento de objetos e classificação \cite{zhang_dive_2021}. Este modelo possui inspiração na biologia, teoria de grupos entre outros \cite{zhang_dive_2021}. Nesta seção as redes neurais convolucionais serão introduzidas.
+Redes neurais convolucionais foram desenvolvidas para resolver o problema de aprender o relacionamento entre dados adjacentes e são amplamente utilizadas para o processamento de imagens justamente por terem a capacidade de extrair características úteis para reconhecimento de objetos e classificação. Este modelo possui inspiração na biologia, teoria de grupos entre outros \cite{zhang_dive_2021}. Nesta seção as redes neurais convolucionais serão introduzidas.
 
 Convolução é um conceito matemático que é calculado entre duas funções \textit{f} e \textit{g} e mede o quanto a função \textit{g} se sobrepõe à função \textit{f} se \textit{g} se desloca através de \textit{f} e é calculada formalmente como \cite{wikipedia_convolucao_2020, weisstein_convolution_2003, zhang_dive_2021}:
 
@@ -15,7 +15,7 @@ Convolução é um conceito matemático que é calculado entre duas funções \t
 
 A equação \ref{eq:eq1} pode ser generalizada para múltiplas dimensões, como é o caso de imagens. Imagens em preto e branco podem ser definidas com duas dimensões (largura e altura) enquanto imagens coloridas podem ser definidas com três dimensões (largura, altura e cor). 
 
-Para detectar um objeto em específico em uma imagem, considerando que o modelo matemático desta esteja disponível, pode-se calcular a convolução da primeira imagem em relação ao objeto. Assim, os pontos mais propensos de se encontrar o objeto terão um pico na convolução \cite{zhang_dive_2021}. No caso de imagens coloridas, essas convoluções devem ser adaptadas para trabalhar com canais de cores diferentes (vermelho, verde e azul): os três canais que compõem uma imagem colorida. As convoluções extraem características da imagem e reduzem a complexidade do processamento. De acordo com \cite{zhang_dive_2021}, camadas de convoluções geralmente requerem menos parâmetros que uma rede completamente conectada, como um MLP. \index{MLP} \index{Multilayer Perceptron}
+Para detectar um objeto em específico em uma imagem, considerando que o modelo matemático desta esteja disponível, pode-se calcular a convolução da primeira imagem em relação ao objeto. Assim, os pontos mais propensos de se encontrar o objeto terão um pico na convolução \cite{zhang_dive_2021}. No caso de imagens coloridas, essas convoluções devem ser adaptadas para trabalhar com canais de cores diferentes (vermelho, verde e azul): os três canais que compõem uma imagem colorida. As convoluções extraem características da imagem e reduzem a complexidade do processamento. De acordo com \citeonline{zhang_dive_2021}, camadas de convoluções geralmente requerem menos parâmetros que uma rede completamente conectada, como um MLP. \index{MLP} \index{Multilayer Perceptron}
 
 Para capturar detalhes espaciais de uma imagem, as redes convolucionais conectam um conjunto de pixels adjacentes em um único neurônio da próxima camada. Este neurônio tem um nome especial. É conhecido como \textit{campo receptivo local}. Esta operação que acaba de ser descrita é uma convolução \cite{gulli_deep_2019}. Veja a imagem abaixo:
 
