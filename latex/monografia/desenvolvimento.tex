@@ -277,33 +277,7 @@ Para usufruir deste hardware, é necessário no entanto de uma forma de interfac
 
 Várias destas bibliotecas utilizadas para desenvolver modelos de inteligência artificial e redes neurais fazem uso de recursos matemáticos como tensores, que generalizam várias estruturas básicas: valores escalares, vetores, matrizes etc. Existem hardwares específicos para processamento de tensores, os assim chamados TPUs (Tensor Processing Unit, unidade de processamento de tensores, do inglês) e inclusive, há formas de acessá-los de forma gratuita. Como o modelo utilizado neste trabalho foi desenvolvido e otimizado para GPUs, é supérfluo entrar em mais detalhes sobre TPUs. Vale no entanto, a menção e talvez um trabalho futuro envolvendo o assunto.\index{TPU}
 
-\subsection{Descrevendo o hardware disponível}
-\index{Treinamento}
 
-Para treinar o modelo, um computador esteve disponível. A especificação de seu hardware está contida na tabela abaixo:
-
-\begin{table}[H]
-    \centering
-    \caption{Tabela de descrição do hardware}
-    \begin{tabular}{|l|l|} \hline
-        \textbf{Item}            & \textbf{Descrição}                    \\ \hline
-        CPU                      & Intel i7 Octa Core                    \\ \hline
-        Memória RAM              & 16GB                                  \\ \hline
-        Memória de Vídeo         & 2GB                                   \\ \hline
-        Modelo da placa de vídeo & GeForce MX350                         \\ \hline
-        Disco                    & 512GB (apenas 90GB disponível)        \\ \hline
-        Sistema operacional      & Windows 10 e Ubuntu 24.04 disponível  \\ \hline
-    \end{tabular}
-    \vspace{0.3cm}
-    \legend{Fonte: Autor.}
-    \label{tab:my_label}
-\end{table}
-
-A placa de vídeo apresentada (GeForce GT920M) é um modelo de computadores portáteis voltada para jogos. Uma informação importante de se documentar, é sua quantidade de Núcleos \textit{CUDA}\index{CUDA} conhecidos popularmente pelo termo em inglês \textit{Cuda Core}. Os núcleos \textit{CUDA} são os núcleos de processamento de instruções das \textit{GPUs} da \textit{NVIDIA}, conceito bem parecido com o conceito de núcleos de processadores \cite{ryles_what_2022}. A placa em questão possui compatibilidade com \textit{CUDA}, um requisito indispensável, e possui 384 núcleos \textit{CUDA} \cite{nvidia_geforce_2022, technical_city_nvidia_2022}. Esta placa de vídeo de entrada possui 96 vezes mais núcleos que a CPU disponível.
-
-O hardware descrito, está distante de ser o ideal para o treinamento de um modelo complexo e exigente em termos de recursos, como é o caso do modelo descrito e utilizado neste trabalho. Treinamentos do tipo costumam ser feitos em servidores dedicados, com processadores poderosos e grandes quantidades de memória RAM e memória de vídeo (VRAM).
-
-Por causa desta limitação de recursos, é preciso recorrer à alternativas a nível de software, como descrito na seção \ref{sec:prep-imgs}.
 
 
 \subsection{Descrição do software necessário para treinar o modelo}
@@ -511,9 +485,7 @@ Nesta seção, será descrito o procedimento pelo qual a colheita de dados foi f
 \subsection{Experimentos de similaridade entre imagens}
 \label{sec:experimentos-similaridade-imagens}
 
-Como dito na seção \ref{sec:qualidade-imagem}, existem formas quantitativas de avaliar a qualidade de imagens. Um pequeno programa foi desenvolvido para lidar com essa tarefa de forma automatizada \cite{vasconcelos_leonamtvimage-similarity-scripts_2023}. O programa executa em linha de comando, recebendo como parâmetros as duas imagens e os algoritmos de similaridade que será utilizado. O software tem os seguintes algoritmos de similaridade disponíveis: MSE, RMSE, PSNR, UQI, SSIM, ERGAS, SCC, RASE, SAM, MSSSIM e VIFP.
-
-Para o escopo deste trabalho, serão utilizados os algoritmos MSE, RMSE, PSNR e ERGAS. A sintaxe utilizada segue o seguinte padrão
+Esta subseção dedica-se à experimentos feitos em cima da biblioteca brevemente mencionada na seção \ref{aval-similarity-images}, utilizada como base para determinação do desempenho do modelo treinado de maneira específica. A sintaxe utilizada segue o seguinte padrão descrito na figura \ref{fig:fig31} abaixo:
 
 \begin{figure}[H]
     \centering
